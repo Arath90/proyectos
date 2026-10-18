@@ -1,0 +1,45 @@
+name: punto_venta_madre
+description: "A new Flutter project."
+publish_to: 'none'
+# `nombre+codigo`. El codigo de la derecha tiene que subir en cada version que
+# se instale en la tablet: Android rechaza instalar encima un codigo menor, y
+# la unica salida seria desinstalar, que borra la base.
+version: 0.2.0+3
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Los dialogos de Material -sobre todo el calendario- traen sus textos de
+  # aqui. Sin este paquete, `showDatePicker` sale en ingles aunque el resto de
+  # la aplicacion este en espanol.
+  flutter_localizations:
+    sdk: flutter
+  drift: ^2.34.4
+  drift_flutter: ^0.3.1
+  flutter_riverpod: 2.6.1
+  # Clavada en la version que trae flutter_localizations: el SDK la fija y una
+  # restriccion mas alta rompe la resolucion.
+  intl: ^0.20.2
+  uuid: ^4.6.0
+  excel: ^4.0.6
+  share_plus: ^13.3.0
+  path_provider: ^2.1.6
+  # Para traer un respaldo de vuelta desde WhatsApp o Drive. Sin esto, el
+  # archivo se puede sacar de la tablet pero no volver a meter: la carpeta
+  # privada de la aplicacion no es accesible desde afuera, asi que un respaldo
+  # sin selector de archivos seria un respaldo que no se puede restaurar.
+  file_picker: ^12.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ^2.34.0
+  build_runner: ^2.15.1
+  async: ^2.13.1
+
+flutter:
+  uses-material-design: true
